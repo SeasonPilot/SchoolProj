@@ -9,8 +9,12 @@ public class SchoolTest {
         System.out.println(sub1.info());
 
         System.out.println("=================================");
-
         Student stu2 = new Student("2", "李四", "男", 18, sub1);
         System.out.println(stu2.introduction());
+
+        sub1.addStudent(stu2);
+        sub1.addStudent(stu2);
+        sub1.addStudent(stu2);
+        System.out.println(sub1.getStudentNum());
     }
 }

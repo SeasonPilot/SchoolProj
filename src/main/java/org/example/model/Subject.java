@@ -7,6 +7,8 @@ public class Subject {
     private String sujectName;
     private String subjectNo;
     private int subjectLife;
+    private Student[] student;
+    private int studentNum;
 
     public Subject() {
 
@@ -45,6 +47,29 @@ public class Subject {
         this.subjectLife = subjectLife;
     }
 
+
+    public void setStudent(Student[] student) {
+        this.student = student;
+    }
+
+    /*
+    fixme: 要对对象进行判空
+     */
+    public Student[] getStudent() {
+        if (student == null) {
+            this.student = new Student[200];
+        }
+        return student;
+    }
+
+    public int getStudentNum() {
+        return studentNum;
+    }
+
+    public void setStudentNum(int studentNum) {
+        this.studentNum = studentNum;
+    }
+
     /**
      * 专业介绍的方法
      *
@@ -56,4 +81,13 @@ public class Subject {
         return str;
     }
 
+    public void addStudent(Student student) {
+        for (int i = 0; i < this.getStudent().length; i++) {
+            if (this.getStudent()[i] == null) {
+                this.getStudent()[i] = student;
+                this.setStudentNum(i + 1);
+                return;
+            }
+        }
+    }
 }
